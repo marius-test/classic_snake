@@ -2,6 +2,6 @@
 
 Recreating the classic Snake game in Python.
 
-Libraries: pygame
+Library: pygame
 
 ## Work in progress...
