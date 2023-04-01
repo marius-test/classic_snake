@@ -1,5 +1,6 @@
 import pygame
 import time
+import random
 
 
 pygame.init()
@@ -16,21 +17,21 @@ black = (0, 0 ,0)
 x1 = screen_width / 2
 y1 = screen_height / 2
 
-snake = 10
-speed = 20
+snake_block = 10
+snake_speed = 30
 
-x1_move = 0
-y1_move = 0
+x1_moved = 0
+y1_moved = 0
 
 game_state = True
-font = pygame.font.SysFont(None, 50)
+font = pygame.font.SysFont('Courier', 50, True, False)
 screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption("Python Snake by MariusB5, enjoy!")
+pygame.display.set_caption("Python Snake by MariusB5")
 clock = pygame.time.Clock()
 
 def message(message_arg, color):
     message_var = font.render(message_arg, True, color)
-    screen.blit(message_var, [x1, y1])
+    screen.blit(message_var, [280, 270])
 
 while game_state:
     for event in pygame.event.get():
@@ -41,27 +42,34 @@ while game_state:
         if event.type == pygame.KEYDOWN:
             # KEYDOWN referring to any key from the keyboard
             if event.key == pygame.K_LEFT:
-                x1_move = -10
-                y1_move = 0
+                x1_moved = -snake_block
+                y1_moved = 0
             elif event.key == pygame.K_RIGHT:
-                x1_move = 10
-                y1_move = 0
+                x1_moved = snake_block
+                y1_moved = 0
             elif event.key == pygame.K_UP:
-                y1_move = -10
-                x1_move = 0
+                y1_moved = -snake_block
+                x1_moved = 0
             elif event.key == pygame.K_DOWN:
-                y1_move = 10
-                x1_move = 0
+                y1_moved = snake_block
+                x1_moved = 0
 
-    x1 += x1_move
-    y1 += y1_move
+    if x1 >= screen_width or x1 < 0 or y1 >= screen_height or y1 < 0:
+        game_state = False
+
+    x1 += x1_moved
+    y1 += y1_moved
     screen.fill(black)
-    pygame.draw.rect(screen, green, [x1, y1, 10, 10])
+    pygame.draw.rect(screen, green, [x1, y1, snake_block, snake_block])
     # [] first two numbers is the position on the screen
     # [] second two numbers is the size of the rectangle
     pygame.display.update()
 
-    clock.tick(30)
+    clock.tick(snake_speed)
+
+message("GAME OVER", red)
+pygame.display.update()
+time.sleep(5)
 
 pygame.quit()
 quit()
