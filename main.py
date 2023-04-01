@@ -1,30 +1,43 @@
 import pygame
+import time
 
 
 pygame.init()
-game_screen = pygame.display.set_mode((800, 600))
-pygame.display.set_caption("Python Snake by Marius, enjoy!")
 
+# window size
+screen_width = 800
+screen_height = 600
+
+# rgb colors
 green = (0, 255, 0)
 red = (255, 0 ,0)
-white = (255, 255, 255)
 black = (0, 0 ,0)
 
-x1 = 400
-y1 = 300
+x1 = screen_width / 2
+y1 = screen_height / 2
+
+snake = 10
+speed = 20
 
 x1_move = 0
 y1_move = 0
 
-time = pygame.time.Clock()
+game_state = True
+font = pygame.font.SysFont(None, 50)
+screen = pygame.display.set_mode((screen_width, screen_height))
+pygame.display.set_caption("Python Snake by MariusB5, enjoy!")
+clock = pygame.time.Clock()
 
-game_over = False
-while not game_over:
+def message(message_arg, color):
+    message_var = font.render(message_arg, True, color)
+    screen.blit(message_var, [x1, y1])
+
+while game_state:
     for event in pygame.event.get():
         print(event)
 
         if event.type == pygame.QUIT:
-            game_over = True
+            game_state = False
         if event.type == pygame.KEYDOWN:
             # KEYDOWN referring to any key from the keyboard
             if event.key == pygame.K_LEFT:
@@ -42,13 +55,13 @@ while not game_over:
 
     x1 += x1_move
     y1 += y1_move
-    game_screen.fill(black)
-    pygame.draw.rect(game_screen, green, [x1, y1, 10, 10])
+    screen.fill(black)
+    pygame.draw.rect(screen, green, [x1, y1, 10, 10])
     # [] first two numbers is the position on the screen
     # [] second two numbers is the size of the rectangle
     pygame.display.update()
 
-    time.tick(30)
+    clock.tick(30)
 
 pygame.quit()
 quit()
