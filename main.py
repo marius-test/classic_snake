@@ -24,14 +24,18 @@ pygame.display.set_caption("Python Snake by MariusB5")
 font_style = pygame.font.SysFont('Courier', 20)
 clock = pygame.time.Clock()
 
+def the_score(score):
+    score_loc = font_style.render("Score:" + str(score), True, red)
+    screen.blit(score_loc, [10, 10])
+
 def snake(snake_block, snake_list):
     for x in snake_list:
         pygame.draw.rect(screen, green, [x[0], x[1], snake_block, snake_block])
 
 
 def message(text, color):
-    message_var = font_style.render(text, True, color)
-    screen.blit(message_var, [170, 280])
+    message_loc = font_style.render(text, True, color)
+    screen.blit(message_loc, [170, 280])
 
 
 def game_loop():
@@ -55,6 +59,7 @@ def game_loop():
         while game_close == True:
             screen.fill(black)
             message('GAME OVER! Press Q to quit or R to restart', red)
+            the_score(snake_length - 1)
             pygame.display.update()
 
             for event in pygame.event.get():
@@ -108,6 +113,7 @@ def game_loop():
                 game_close = True
 
         snake(snake_block, snake_list_)
+        the_score(snake_length - 1)
 
         pygame.display.update()
 
