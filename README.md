@@ -6,8 +6,7 @@ This project served as a concept to learn `pygame` and understand game loops, in
 
 ### How to Run
 
-The game is already compiled.  
-To play, simply run the executable located in the `dist` folder.
+The game is already compiled. To play, simply run the executable located in the `dist` folder.
 
 ### Tech Stack
 
