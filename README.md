@@ -14,4 +14,4 @@ The game is already compiled. To play, simply run the executable located in the 
 - pygame  
 - PyInstaller (for building the executable)  
 
-> Note: This game is a simple prototype and not fully polished.  
+> Feel free to use, modify, or build upon this project.
