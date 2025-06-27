@@ -9,7 +9,7 @@ This project served as a concept to learn `pygame` and understand game loops, in
 The game is already compiled.  
 To play, simply run the executable located in the `dist` folder.
 
-### Tools Stack
+### Tech Stack
 
 - Python 3.x  
 - pygame  
