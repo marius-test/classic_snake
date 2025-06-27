@@ -11,7 +11,7 @@ The game is already compiled. To play, simply run the executable located in the 
 ### Tech Stack
 
 - Python 3.x  
-- pygame  
-- PyInstaller (for building the executable)  
+- pygame
+- PyInstaller (for building the executable)
 
-> Feel free to use, modify, or build upon this project.
+> This is a prototype created for educational purposes and is not fully polished or feature-complete. That said, feel free to use, modify, or build upon this project.
