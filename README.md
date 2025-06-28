@@ -1,4 +1,4 @@
-# python_snake_game
+# classic_snake
 
 A basic recreation of the classic **Snake** game using **Python** and `pygame`.
 
